@@ -1,4 +1,4 @@
-<% unless current_user == true %>
+<% unless current_user %>
 
 	<form method="POST" action="/sign-in">   
 		<label for="username">Username</label>   
@@ -7,5 +7,12 @@
 		<input type="password" name="password">   
 		<input type="submit"> 
 	</form>
+	<a href="/signup">Sign Up</a>
 
+<% else %>
+
+	<button><a href="/log-out">Logout</a></button>
+	<br>
+	<%= current_user.username %>
 <% end %> 
+

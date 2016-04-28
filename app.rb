@@ -7,8 +7,8 @@ require 'rack-flash'
 
 # enable :sessions
 # use Rack::Flash, sweep => true
-configure(:development){set :database, "sqlite3:blog.sqlite3"}
-set :session, true
+configure(:development){set :database, "sqlite3:blogapp.sqlite3"}
+set :sessions, true
 
 
 def current_user
@@ -18,10 +18,8 @@ def current_user
 end
 
 get '/' do
-	
 	@users = User.all
 	erb :home
-
 end
 
 
@@ -68,6 +66,14 @@ post "/sign-in" do
 	if @user && @user.password == params[:password]
 		session[:user_id] = @user.id
 	end
+		redirect '/'
+end
+
+post "/sign-up" do
+	if params[:username] != " " && params[:password] != " " && params[:fname] != " " && params[:lname] != " " && params[:birthday] != " " && params[:email] != " "
+
+get "/log-out" do
+		session[:user_id] = nil
 		redirect '/'
 end
 
