@@ -1,4 +1,4 @@
-<% unless current_user %>
+<% unless current_user == true %>
 
 	<form method="POST" action="/sign-in">   
 		<label for="username">Username</label>   
