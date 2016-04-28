@@ -8,8 +8,6 @@ require 'rack-flash'
 # enable :sessions
 # use Rack::Flash, sweep => true
 configure(:development){set :database, "sqlite3:blog.sqlite3"}
-
-set :database, 'sqlite3:blogapp.sqlite3'
 set :session, true
 
 
