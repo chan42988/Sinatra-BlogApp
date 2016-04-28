@@ -6,7 +6,6 @@ class CreateUsersTable < ActiveRecord::Migration
   		t.string		:password
   		t.string		:fname
   		t.string		:lname
-  		t.integer		:age
   		t.datetime	:birthday
   		t.string		:email
   		

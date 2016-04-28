@@ -15,30 +15,30 @@ end
 
 
 
-get 'signup' do
+# get 'signup' do
 
-	erb :signup
+# 	erb :signup
 
-end
-
-
-
- '/sign-up' do
+# end
 
 
 
-end
+#  '/sign-up' do
 
-#=================================================
 
-post '/sign-in' do
-	@user = User.where(username: params[:username]).first
-	if @user && @user.password == params[:password]
-		session[:user_id] = @user.id
-		flash[:notice] = "You've been signed in successfully."
-		redirect "/posts/new"
-	else
-		flash[:alert] = "There was a problem signing you in."
-	end
-		redirect "/"
-end
+
+# end
+
+# #=================================================
+
+# post '/sign-in' do
+# 	@user = User.where(username: params[:username]).first
+# 	if @user && @user.password == params[:password]
+# 		session[:user_id] = @user.id
+# 		flash[:notice] = "You've been signed in successfully."
+# 		redirect "/posts/new"
+# 	else
+# 		flash[:alert] = "There was a problem signing you in."
+# 	end
+# 		redirect "/"
+# end
