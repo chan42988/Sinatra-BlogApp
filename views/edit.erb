@@ -1,0 +1,20 @@
+<form method="POST" action="/edit">
+	<label for="username">Username</label>
+	<input type="text" name="username" value="<%= @user.username %>"><br>
+	<label for="password">Password</label>
+	<input type="password" name="password" value="<%= @user.password %>"><br>
+	<label for="fname">First Name</label>
+	<input type="text" name="fname" value="<%= @user.fname %>"><br>
+	<label for="lname">Last Name</label>
+	<input type="text" name="lname" value="<%= @user.lname %>"><br>
+	<label for="birthday">Birthday</label>
+	<input type="text" name="birthday" value="<%= @user.birthday %>"><br>
+	<label for="email">Email</label>
+	<input type="text" name="email" value="<%= @user.email %>"><br>
+	<input type="hidden" name="id" value="<%= @user.id %>"><br>
+	<input type="submit">
+</form>
+
+<!-- add a button for deleting -->
+If you want to delete your account, click here.
+<a href="/delete"><button>Delete Account</button></a> 

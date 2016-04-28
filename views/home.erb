@@ -14,5 +14,8 @@
 	<button><a href="/log-out">Logout</a></button>
 	<br>
 	<%= current_user.username %>
-<% end %> 
+	<a href="/users/<%= current_user.id %>">View Profile</a>
+<% end %>
+
+<a href="/members">Members List</a>
 
