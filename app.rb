@@ -5,7 +5,17 @@ require 'sinatra/reloader'
 require 'bundler/setup'
 require 'rack-flash'
 
+# enable :sessions
+# use Rack::Flash, sweep => true
+
 set :database, 'sqlite3:blogapp.sqlite3'
+set :session, true
+
+def current_user
+	if session[:user_id]
+		@current_user = User.find(session[:user_id])
+	end
+end
 
 get '/' do
 	
@@ -15,7 +25,7 @@ end
 
 
 
-get 'signup' do
+get '/signup' do
 
 	erb :signup
 
@@ -23,22 +33,37 @@ end
 
 
 
- '/sign-up' do
+#  '/sign-up' do
 
 
 
-end
+# end
 
 #=================================================
 
+# post '/sign-in' do
+# 	@user = User.where(username: params[:username]).first
+# 	if @user && @user.password == params[:password]
+# 		session[:user_id] = @user.id
+# 		flash[:notice] = "You've been signed in successfully."
+# 		redirect "/posts/new"
+# 	else
+# 		flash[:alert] = "There was a problem signing you in."
+# 	end
+# 		redirect "/"
+# end
+
 post '/sign-in' do
 	@user = User.where(username: params[:username]).first
-	if @user && @user.password == params[:password]
-		session[:user_id] = @user.id
-		flash[:notice] = "You've been signed in successfully."
-		redirect "/posts/new"
+	if @user.password == params[:password]
+		redirect '/'
 	else
-		flash[:alert] = "There was a problem signing you in."
+		redirect '/login-failed'
 	end
-		redirect "/"
+end
+
+
+get '/users/:id' do
+	@user = User.find(params[:id])
+	erb :profile
 end
