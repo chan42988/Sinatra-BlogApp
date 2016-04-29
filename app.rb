@@ -50,7 +50,7 @@ end
 
 
 post "/edit" do
-	@user.update(username: params[:username], password: params[:password], fname: params[:fname], lname: params[:lname], birthday: params[:birthday], email: params[:email])
+	@user = current_user.update(username: params[:username], password: params[:password], fname: params[:fname], lname: params[:lname], birthday: params[:birthday], email: params[:email])
 	redirect '/'
 end
 
@@ -85,7 +85,7 @@ end
 
 
 get '/edit/:id' do
-	@user = User.find(params[:id])
+	@user = current_user
 	erb :edit
 end
 
