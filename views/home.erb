@@ -19,3 +19,11 @@
 
 <a href="/members">Members List</a>
 
+
+<% @posts.last(10).reverse.each do |post| %>
+	<br>
+	<%= post.user.username %><br>
+	<%= post.title %><br>
+	<%= post.body %><br>
+<% end %>
+
