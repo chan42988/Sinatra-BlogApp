@@ -14,10 +14,10 @@
 	<input type="submit"> 
 </form>
 
-<% @posts.reverse.each do |post| %>
-	<br>
-	<%= post.title %><br>
-	<%= post.body %><br>
-<% end %>
-
-
+<div class="user_post">
+	<% @posts.reverse.each do |post| %>
+		<%= post.title %><br>
+		<%= post.body %><br>
+		<br>
+	<% end %>
+</div>

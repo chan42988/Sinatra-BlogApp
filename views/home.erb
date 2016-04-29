@@ -17,13 +17,13 @@
 	<a href="/users/<%= current_user.id %>">View Profile</a>
 <% end %>
 
-<a href="/members">Members List</a>
+<a href="/members">Members List</a><br>
 
-
-<% @posts.last(10).reverse.each do |post| %>
-	<br>
-	<%= post.user.username %><br>
-	<%= post.title %><br>
-	<%= post.body %><br>
-<% end %>
-
+<div class="user_post">
+	<% @posts.last(10).reverse.each do |post| %>
+		<br>
+		<%= post.user.username %>
+		<%= post.title %><br>
+		<%= post.body %><br>
+	<% end %>
+</div>
