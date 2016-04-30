@@ -22,8 +22,12 @@
 <div class="user_post">
 	<% @posts.last(10).reverse.each do |post| %>
 		<br>
-		<%= post.user.username %>
-		<%= post.title %><br>
-		<%= post.body %><br>
+			<div id="epost">
+				<div id="uname">
+					<%= post.user.username %><br>
+				</div><br>
+				<%= post.title %><br>
+				<%= post.body %><br>
+			</div>
 	<% end %>
 </div>

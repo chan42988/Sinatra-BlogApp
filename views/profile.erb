@@ -1,23 +1,29 @@
 <h1><%= @user.username %></h1>
+	<div id="pinfo">
 <p><%= @user.full_name %></p>
 <p>Birthday: <%= @user.birthday %></p>
 <p>Email: <%= @user.email %></p>
 <% if current_user == @user %>
 	<a href="/edit/<%= @user.id %>">Edit Profile</a>
-<% end %>
+	</div>
+<% end %><br><br>
+
+<a href="/">Back</a>
 
 <form method="POST" action="/post"><br>   
 	<label for="title">Title</label><br> 
 	<input type="text" name="title"><br><br>
 	<label for="body">Body</label><br>
-	<input type="textarea" name="body"><br><br>
+	<input type="textarea" id="comment-body" name="body"><br><br>
 	<input type="submit"> 
-</form>
+</form><br>
 
 <div class="user_post">
 	<% @posts.reverse.each do |post| %>
-		<%= post.title %><br>
-		<%= post.body %><br>
+		<div id="epost">
+			<%= post.title %><br>
+			<%= post.body %><br>
+		</div>
 		<br>
 	<% end %>
 </div>
