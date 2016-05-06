@@ -50,10 +50,9 @@ end
 
 
 post "/edit" do
-	@user = current_user.update(username: params[:username], password: params[:password], fname: params[:fname], lname: params[:lname], birthday: params[:birthday], email: params[:email])
+	@post = current_post.update(username: params[:username], password: params[:password], fname: params[:fname], lname: params[:lname], birthday: params[:birthday], email: params[:email])
 	redirect '/'
 end
-
 
 get "/delete" do
 	@user = current_user
@@ -94,6 +93,25 @@ get '/members' do
 	@users = User.all
 	erb :members
 end
+
+post "/PEdit/:id" do
+	@post = Post.find(params[:id])
+	@post.update(title:params[:title], body: params[:body])
+	redirect '/'
+end
+
+post "/PDelete/:id" do
+	@post = Post.find(params[:id])
+	@post.destroy
+	redirect '/'
+end
+
+get "/PEdit/:id" do
+		@post = Post.find(params[:id])
+		erb :PEdit
+end
+
+
 
 # get 'follow/:id' do
 # 	follow.create 

@@ -28,7 +28,11 @@
 	<div id="epost">
 		<%= post.title %><br>
 		<%= post.body %><br>
+		<button><a href="/PEdit/<%=post.id%>">Edit</a></button>
+		<form action="/PDelete/<%=post.id%>" method="POST"><input type="submit" value="delete"></form>
 	</div>
 	<br>
 <% end %>
+
+
 <!-- </div> -->
